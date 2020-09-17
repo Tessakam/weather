@@ -1,33 +1,41 @@
 (() => {
 
-    let url = "http://api.openweathermap.org/data/2.5/forecast?q="
-    const myKey = "4b8d4fe8a28fa00a04cf4d9ee056c183";
-    let input = document.getElementById("input").innerHTML;
+    let secretkey = config.MY_KEY;
+    let url = "http://api.openweathermap.org/data/2.5/forecast?q=";
 
-    function search() {
-        document.getElementById("search").addEventListener("click", function () {
-            return input
-        })
-        console.log(input)
+    document.getElementById("search").addEventListener("click", search);
 
-        //example http://api.openweathermap.org/data/2.5/forecast?q=Mechelen&APPID=4b8d4fe8a28fa00a04cf4d9ee056c183
-        function fetchWeather(search) {
-            fetch(url + input + "&APPID=" + myKey) //parameters
+    function search(data) {
+        let location = document.getElementById("input").value;
+        fetchWeather(); //otherwise nothing happens
+        console.log(location)
+
+        function fetchWeather() {
+
+            fetch(url + location + "&units=metric&appid=" + secretkey) //parameters
                 .then(response => {
                     return response.json()
                 })
                 .then(data => {
-                    document.getElementById("nameLocation").innerHTML = "Location: " + data.city.name
+                    console.log(data);
+                    getName();
                 })
-            console.log(data)
+
+                /*}
+                .catch(error => {
+                    alert("ERROR!\nPlease check your input!\nMake sure this is a valid city")
+                    console.log("error, not found")
+                })*/
+        }
+
+        function getName(data) {
+            for (let i = 0; i < data["list"].length; i++) {
+                let name = data[i];
+                name.push(data.data["list"][i]["city"]["name"])
+                console.log(getName)
+            }
         }
     }
 })
 ();
-
-/*
-.catch(function (error) {
-alert("ERROR!\nPlease check your input!\nMake sure this is a valid city")
-console.log("error, not found")
-})
- */
+//Example http://api.openweathermap.org/data/2.5/forecast?q=antwerp&units=metric&APPID=key
