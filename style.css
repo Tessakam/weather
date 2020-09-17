@@ -3,11 +3,12 @@ body {
     background-repeat: no-repeat;
     background-position: center center;
     font-family: Impact, Charcoal, sans-serif;
-    color: black;
+    color: white;
     box-sizing: border-box;
     margin-top: 50px;
     margin-bottom: 50px;
     padding: 20px 20px 20px 20px;
+    text-align: left;
 }
 
 /* Use media queries to make it responsive*/

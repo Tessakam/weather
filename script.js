@@ -2,13 +2,13 @@
 
     let secretkey = config.MY_KEY;
     let url = "http://api.openweathermap.org/data/2.5/forecast?q=";
+    let today = new Date()
 
     document.getElementById("search").addEventListener("click", search);
 
     function search(data) {
         let location = document.getElementById("input").value;
         fetchWeather(); //otherwise nothing happens
-        console.log(location)
 
         function fetchWeather() {
 
@@ -17,33 +17,31 @@
                     return response.json()
                 })
                 .then(data => {
-                    console.log(data);
                     getName(data);
-                    getTemperatureDay1(data);
-                    getTemperatureDay2(data);
+                    getToday(data);
+                    /*getTemperatureDay2(data);
                     getTemperatureDay3(data);
                     getTemperatureDay4(data);
-                    getTemperatureDay5(data);
+                    getTemperatureDay5(data);*/
                 })
 
-                .catch(error => {
-                    alert("ERROR!\nPlease check your input!\nMake sure this is a valid city")
-                    console.log("error, not found")
-                })
+            /*.catch(error => {
+                alert("ERROR!\nPlease check your input!\nMake sure this is a valid city")
+                console.log("error, not found")
+            })*/
         }
 
         function getName(data) {
             let name = data.city.name
-            //document.getElementById("nameLocation").innerHTML
-            //console.log(getName)
+            document.getElementById("nameLocation").innerHTML = "The weather in " + name
         }
 
         //add loop because data is in array
-        function getTemperatureDay1(data) {
+        function getToday(data) {
             for (let i = 0; i < data.length; i++) {
-                let temp = [];
-                temp.push(data["list"][i]["main"]["temp"])
-                console.log(getTemperature)
+                let today = [];
+                today.push(data["list"][i]["dt_text"])
+                console.log(today)
             }
         }
     }
