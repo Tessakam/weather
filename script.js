@@ -18,22 +18,19 @@
                 })
                 .then(data => {
                     console.log(data);
-                    getName();
+                    getName(data);
                 })
 
-                /*}
-                .catch(error => {
-                    alert("ERROR!\nPlease check your input!\nMake sure this is a valid city")
-                    console.log("error, not found")
-                })*/
+            /*}
+            .catch(error => {
+                alert("ERROR!\nPlease check your input!\nMake sure this is a valid city")
+                console.log("error, not found")
+            })*/
         }
 
         function getName(data) {
-            for (let i = 0; i < data["list"].length; i++) {
-                let name = data[i];
-                name.push(data.data["list"][i]["city"]["name"])
-                console.log(getName)
-            }
+            let name = data.city.name
+            console.log(getName)
         }
     }
 })
