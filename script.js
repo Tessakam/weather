@@ -17,9 +17,7 @@
                 })
                 .then(data => {
                     getName(data);
-                    getDays(data);
-                    timeConverter(UNIX_timestamp)
-
+                    getTemperature(data);
 
                 })
 
@@ -34,42 +32,44 @@
             document.getElementById("nameLocation").innerHTML = "The weather in " + name
         }
 
-        //translate dt-text into today, day 1, ...
-        //Example: https://stackoverflow.com/questions/847185/convert-a-unix-timestamp-to-time-in-javascript/847196#847196
-        function timeConverter(UNIX_timestamp){
-            let a = new Date(UNIX_timestamp * 1000);
-            let months = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
-            let year = a.getFullYear();
-            let month = months[a.getMonth()];
-            let date = a.getDate();
-            let hour = a.getHours();
-            let min = a.getMinutes();
-            let sec = a.getSeconds();
-            let time = date + ' ' + month + ' ' + year + ' ' + hour + ':' + min + ':' + sec ;
-            return time;
+        function getTemperature(data) {
+            let temp = [];
+            for (let i = 0; i < data.list.length; i++) {
+
+                let weekday = (new Date(data["list"][i]["dt"])).toLocaleString('en-us', {weekday: 'long'})
+                temp.push([data["list"][i]["main"]["temp"], weekday]);
+                //todo:check date format (result always Monday)
+                console.log(temp);
+            }
         }
-        console.log(timeConverter(0));
 
+        function dtConverter(data) {
+            for (let i = 0; i < data.length; i++) {
+                let dt = [];
+                dt.push(data["list"][i]["dt"])
 
-            /*//add loop because data is in array
-            function getDays(data) {
-                let today = new Date()
-                let day1 = [];
-                let day2 = [];
-                let day3 = [];
-                let day4 = [];
-                let day5 = [];
-
-                for (let i = 0; i < data.length; i++) {
-                    let today = [];
-                    today.push(data["list"][i]["dt_text"])
-                    console.log(today)
-                }
-            }*/
-
+                let s = new Date[dtConverter].toLocaleDateString("en-US")
+                return new Date(s * 1e3).toISOString().slice(-13, -5);
+            }
         }
+
+        /*//add loop because data is in array
+        function getDays(data) {
+            let day1 = [];
+            let day2 = [];
+            let day3 = [];
+            let day4 = [];
+            let day5 = [];
+
+            for (let i = 0; i < data.length; i++) {
+                let today = [];
+                today.push(data["list"][i]["dt_text"])
+                console.log(today)
+            }
+        }*/
+
     }
-
-)
+})
 ();
 //Example http://api.openweathermap.org/data/2.5/forecast?q=antwerp&units=metric&APPID=key
+//Example td converter: https://stackoverflow.com/questions/847185/convert-a-unix-timestamp-to-time-in-javascript/847196#847196
