@@ -19,18 +19,32 @@
                 .then(data => {
                     console.log(data);
                     getName(data);
+                    getTemperatureDay1(data);
+                    getTemperatureDay2(data);
+                    getTemperatureDay3(data);
+                    getTemperatureDay4(data);
+                    getTemperatureDay5(data);
                 })
 
-            /*}
-            .catch(error => {
-                alert("ERROR!\nPlease check your input!\nMake sure this is a valid city")
-                console.log("error, not found")
-            })*/
+                .catch(error => {
+                    alert("ERROR!\nPlease check your input!\nMake sure this is a valid city")
+                    console.log("error, not found")
+                })
         }
 
         function getName(data) {
             let name = data.city.name
-            console.log(getName)
+            //document.getElementById("nameLocation").innerHTML
+            //console.log(getName)
+        }
+
+        //add loop because data is in array
+        function getTemperatureDay1(data) {
+            for (let i = 0; i < data.length; i++) {
+                let temp = [];
+                temp.push(data["list"][i]["main"]["temp"])
+                console.log(getTemperature)
+            }
         }
     }
 })

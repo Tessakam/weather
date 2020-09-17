@@ -1,0 +1,25 @@
+body {
+    background-image: url("images/banner.jpg");
+    background-repeat: no-repeat;
+    background-position: center center;
+    font-family: Impact, Charcoal, sans-serif;
+    color: black;
+    box-sizing: border-box;
+    margin-top: 50px;
+    margin-bottom: 50px;
+    padding: 20px 20px 20px 20px;
+}
+
+/* Use media queries to make it responsive*/
+@media screen and (max-width: 992px) {
+    body {
+        width: 80%;
+    }
+}
+@media screen and (max-width: 600px) {
+    body {
+        width: 40%;
+    }
+}
+
+

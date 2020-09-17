@@ -7,7 +7,8 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+          integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link rel="stylesheet" type="text/css" href="style.css">
     <title>The weather</title>
 
@@ -16,16 +17,60 @@
 <body>
 <h1>The weather</h1>
 
-<div class="container">
-    <input id="input" type="text" placeholder="Enter your city">
-    <button id="search" type="submit">Search weather!</button>
+    <div class="container">
+        <form action="#" class="find-location">
+            <br>
+            <input class="form-control" id="input" type="text" placeholder="Find your location...">
+            <br>
+            <button class="btn btn-warning my-2 my-sm-0" id="search" type="submit">Search weather!</button>
+        </form>
+
+        <div id="nameLocation"></div>
+          </div>
+
+
+    <!--
+</div>
+<div class="forecast-table">
+    <div class="container">
+        <div class="forecast-container">
+            <div class="today forecast">
+                <div class="forecast-header">
+                    <div class="day">Monday</div>
+                    <div class="date">6 Oct</div>
+                </div>
+
+*** .forecast-header
+<div class="forecast-content">
+<div class="location">New York</div>
+<div class="degree">
+<div class="num">23<sup>o</sup>C</div>
+<div class="forecast-icon">
+<img src="images/icons/icon-1.svg" alt="" width=90>
+</div>
+</div>
+<span><img src="images/icon-umberella.png" alt="">20%</span>
+<span><img src="images/icon-wind.png" alt="">18km/h</span>
+<span><img src="images/icon-compass.png" alt="">East</span>
+</div>
+</div>
+<div class="forecast">
+<div class="forecast-header">
+<div class="day">Tuesday</div>
 </div>
 
-<div id="nameLocation"></div>
+*** .forecast-header
+                <div class="forecast-content">
+                    <div class="forecast-icon">
+                        <img src="images/icons/icon-3.svg" alt="" width=48>
+                    </div>
+                    <div class="degree">23<sup>o</sup>C</div>
+                    <small>18<sup>o</sup></small>
+                </div>
+            </div>            -->
 
-
-<!-- JavaScript -->
-<script type='text/javascript' src='config.js'></script>
-<script type='text/javascript' src='script.js></script>
+            <!-- JavaScript -->
+            <script type='text/javascript' src='config.js'></script>
+            <script type='text/javascript' src='script.js'></script>
 </body>
 </html>
